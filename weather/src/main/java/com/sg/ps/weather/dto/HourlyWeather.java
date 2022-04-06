@@ -1,8 +1,5 @@
 package com.sg.ps.weather.dto;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import com.sg.ps.weather.dto.integration.DayWeather;
 import com.sg.ps.weather.predict.WeatherPredictor;
 

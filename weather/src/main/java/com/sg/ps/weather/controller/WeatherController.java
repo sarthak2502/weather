@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sg.ps.weather.dto.CityWeather;
 import com.sg.ps.weather.service.WeatherService;
 
+
 @RestController
 @RequestMapping("/weather")
 public class WeatherController {
