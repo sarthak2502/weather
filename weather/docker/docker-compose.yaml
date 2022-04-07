@@ -1,0 +1,17 @@
+version: '3.1'
+
+services:
+  springboot-container-weather2:
+    ports:
+    - 8080:8080
+    environment:
+      WEATHER_API_KEY: d2929e9483efc82c82c32ee7e02d563e
+    build:
+      context: "./"
+      dockerfile: "DockerFile"
+    secrets:
+       - weather-api
+
+secrets:
+  weather-api:
+    file : api-secret.txt
