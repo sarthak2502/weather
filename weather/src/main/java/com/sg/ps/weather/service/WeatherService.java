@@ -24,6 +24,8 @@ public class WeatherService {
 	private WeatherConverter weatherConverter;
 
 	public CityWeather checkWeather(String city) {
+		//The rest call can be extracted to a separate service..
+		//So that delayed response or down time can be efficiently handled in a microservice env.
 		ResponseEntity<WeatherResponse> weatherRes = restTemplate.exchange(weatherUrl.concat(city), HttpMethod.GET, null, WeatherResponse.class);
 		return weatherConverter.convert(weatherRes.getBody());
 	}

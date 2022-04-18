@@ -15,6 +15,7 @@ public class WeatherConditionFactory {
 		} else if (WeatherType.Thunderstorm.equals(type)) {
 			return new ThunderWeather();
 		}
+		//TODO implement other weather types
 		
 		return new ClearWeather();
 	}

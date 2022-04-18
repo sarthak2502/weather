@@ -1,6 +1,5 @@
 package com.sg.ps.weather.service;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import java.util.ArrayList;
@@ -64,6 +63,7 @@ class WeatherServiceTest {
 		WeatherResponse weatherResponse = WeatherResponse.builder().city(City.builder().name(city).build()).list(weathers).build();
 		ResponseEntity<WeatherResponse> resEnt = new ResponseEntity<WeatherResponse>(weatherResponse, HttpStatus.OK);
 		ReflectionTestUtils.setField(weatherService, "weatherUrl", weatherUrl);
+		// Rest calls can also be mocked, by creating a separate wiremock container in docker env
 		Mockito.when(restTemplate.exchange(weatherUrl.concat(city), HttpMethod.GET, null, WeatherResponse.class)).thenReturn(resEnt);
 		Mockito.when(weatherConverter.convert(resEnt.getBody())).thenReturn(convert(weatherResponse));
 

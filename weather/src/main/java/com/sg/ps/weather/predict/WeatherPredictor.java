@@ -16,6 +16,7 @@ public class WeatherPredictor {
 	public static String getPrediction(DayWeather dayWeather) {
 		StringBuilder sb = new StringBuilder();
 		if (dayWeather.getMain().getTemp() > 40) {
+			//TODO: The info messages shall be moved to property files.
 			sb.append("A sunny day. Use sunscreen lotion. ");
 		}
 		if (dayWeather.getWind().getSpeed() > 3) {

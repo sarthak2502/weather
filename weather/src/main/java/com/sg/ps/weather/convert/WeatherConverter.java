@@ -25,6 +25,7 @@ public class WeatherConverter implements DataConverter<WeatherResponse, CityWeat
 		
 		target.setCity(source.getCity().getName());
 		List<HourlyWeather> lstDays = new ArrayList<>();
+		//TODO: below static builder should be changed to Hourly weather converter to make it more testable 
 		source.getList().forEach((DayWeather day) -> lstDays.add(HourlyWeather.build(day)));
 		Map<String, List<HourlyWeather>> map = lstDays.stream().collect(Collectors.groupingBy(HourlyWeather::getDay));
         Map<String, List<HourlyWeather>> sorted = new TreeMap<>();
